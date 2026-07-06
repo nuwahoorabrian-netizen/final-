@@ -97,8 +97,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = async (email: string, password: string, name: string, department: string, role: UserRole = 'user') => {
-    // Use the deployed Vercel URL so that email verification works across all devices
-    const redirectUrl = `https://final-project-presentation.vercel.app/`;
+    // Use the dynamic origin URL so that email verification works across all devices and environments
+    const redirectUrl = `${window.location.origin}/`;
 
     const { error } = await supabase.auth.signUp({
       email,
@@ -131,7 +131,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const resetPassword = async (email: string) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `https://final-project-presentation.vercel.app/reset-password`,
+      redirectTo: `${window.location.origin}/reset-password`,
     });
     return { error };
   };
