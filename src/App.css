@@ -1,0 +1,75 @@
+/* ─── Reset root constraints so the app uses the full viewport ─── */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ─── Mobile nav bar utility ─────────────────────────────────────── */
+.mobile-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1rem;
+}
+
+/* ─── Generic responsive padding on small screens ───────────────── */
+@media (max-width: 767px) {
+  .p-8 {
+    padding: 1rem !important;
+  }
+
+  .p-6 {
+    padding: 0.875rem !important;
+  }
+
+  /* Stack grids to single column on mobile */
+  .grid-cols-4,
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  /* Readable typography on small screens */
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+}
+
+/* ─── Legacy placeholder styles (kept for safety) ───────────────── */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
